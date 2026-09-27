@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy Birthday Protiva 🎂</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+  font-family:Arial,sans-serif; background:linear-gradient(135deg,#fff5f7,#f4f0ff);
+  color:#333; overflow:hidden;
+}
+.card{
+  width:min(90%,520px); padding:42px 28px; text-align:center; border-radius:28px;
+  background:rgba(255,255,255,.82); box-shadow:0 20px 60px rgba(80,50,100,.15);
+  backdrop-filter:blur(8px);
+}
+h1{font-size:42px;margin:0 0 10px}
+h2{font-size:28px;margin:0 0 22px}
+p{font-size:17px;line-height:1.7;margin:10px 0}
+button{
+  margin-top:22px;padding:13px 25px;border:0;border-radius:999px;
+  background:#333;color:white;font-size:16px;cursor:pointer;
+}
+#message{display:none;margin-top:22px}
+.heart{font-size:42px;animation:float 2s infinite ease-in-out}
+@keyframes float{50%{transform:translateY(-8px)}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="heart">🎂 ✨</div>
+  <h1>Happy Birthday</h1>
+  <h2>Protiva 🤍</h2>
+  <p>May Allah bless you with happiness, peace, good health, and beautiful moments.</p>
+  <p>May every new chapter of your life bring you closer to the things that make you genuinely happy.</p>
+  <button onclick="document.getElementById('message').style.display='block';this.style.display='none'">
+    Open a little wish ✨
+  </button>
+  <div id="message">
+    <p><b>Have a beautiful birthday, Protiva.</b></p>
+    <p>Keep smiling, keep shining, and take care. 🌙</p>
+  </div>
+</div>
+</body>
+</html>
