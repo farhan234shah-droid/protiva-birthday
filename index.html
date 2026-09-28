@@ -2,46 +2,461 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Happy Birthday Protiva 🎂</title>
-<img src="birthday.png" alt="Happy Birthday Protiva" style="width:100%; max-width:600px; border-radius:20px; margin:20px auto; display:block;"><style>
-*{box-sizing:border-box}
-body{
-  margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
-  font-family:Arial,sans-serif; background:linear-gradient(135deg,#fff5f7,#f4f0ff);
-  color:#333; overflow:hidden;
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.card{
-  width:min(90%,520px); padding:42px 28px; text-align:center; border-radius:28px;
-  background:rgba(255,255,255,.82); box-shadow:0 20px 60px rgba(80,50,100,.15);
-  backdrop-filter:blur(8px);
+
+html {
+    scroll-behavior: smooth;
 }
-h1{font-size:42px;margin:0 0 10px}
-h2{font-size:28px;margin:0 0 22px}
-p{font-size:17px;line-height:1.7;margin:10px 0}
-button{
-  margin-top:22px;padding:13px 25px;border:0;border-radius:999px;
-  background:#333;color:white;font-size:16px;cursor:pointer;
+
+body {
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    color: white;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at 50% 15%, rgba(80,90,160,.45), transparent 30%),
+        linear-gradient(180deg, #050817 0%, #0b1230 45%, #101a3d 100%);
 }
-#message{display:none;margin-top:22px}
-.heart{font-size:42px;animation:float 2s infinite ease-in-out}
-@keyframes float{50%{transform:translateY(-8px)}}
+
+/* ---------- STARS ---------- */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    opacity: .8;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+
+    0%, 100% {
+        opacity: .2;
+        transform: scale(.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* ---------- MOON ---------- */
+
+.moon {
+    position: absolute;
+    top: 7%;
+    right: 10%;
+    width: 90px;
+    height: 90px;
+
+    background: #fffdf0;
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 25px rgba(255,255,220,.8),
+        0 0 70px rgba(150,170,255,.25);
+}
+
+.moon::after {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+
+    background: #070b20;
+
+    left: 25px;
+    top: -8px;
+}
+
+/* ---------- MAIN ---------- */
+
+.container {
+    position: relative;
+    z-index: 2;
+
+    width: min(92%, 850px);
+    margin: auto;
+
+    padding: 70px 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+
+    margin-bottom: 15px;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #d9dcff,
+        #fff
+    );
+
+    -webkit-background-clip: text;
+    color: transparent;
+
+    animation: fadeDown 1.5s ease;
+}
+
+.subtitle {
+    font-size: clamp(1rem, 3vw, 1.35rem);
+    opacity: .85;
+
+    margin-bottom: 35px;
+
+    animation: fadeUp 1.5s ease;
+}
+
+/* ---------- BIRTHDAY IMAGE ---------- */
+
+.birthday-image {
+    width: 100%;
+    max-width: 650px;
+
+    display: block;
+    margin: 30px auto;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.5),
+        0 0 40px rgba(130,150,255,.2);
+
+    animation: imageAppear 2s ease;
+
+    transition: transform .5s ease;
+}
+
+.birthday-image:hover {
+    transform: scale(1.02);
+}
+
+/* ---------- CARD ---------- */
+
+.card {
+    margin: 35px auto;
+    padding: 35px 25px;
+
+    max-width: 650px;
+
+    background: rgba(255,255,255,.08);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.3);
+
+    animation: fadeUp 2s ease;
+}
+
+.card p {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    line-height: 1.8;
+
+    color: #f3f4ff;
+}
+
+/* ---------- BUTTON ---------- */
+
+button {
+    margin-top: 25px;
+
+    padding: 14px 28px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #cdd5ff
+    );
+
+    color: #10152e;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.3);
+
+    transition: .3s;
+}
+
+button:hover {
+    transform: translateY(-4px) scale(1.03);
+}
+
+#wish {
+    display: none;
+
+    margin-top: 25px;
+
+    font-size: 1.15rem;
+    line-height: 1.8;
+
+    animation: fadeUp 1s ease;
+}
+
+/* ---------- MUSIC ---------- */
+
+.music-button {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 10;
+
+    width: 55px;
+    height: 55px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.15);
+
+    color: white;
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    font-size: 22px;
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes fadeDown {
+
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes imageAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 50px 0;
+    }
+
+    .moon {
+        width: 65px;
+        height: 65px;
+        right: 7%;
+    }
+
+    .moon::after {
+        width: 65px;
+        height: 65px;
+        left: 18px;
+        top: -6px;
+    }
+
+    .card {
+        padding: 28px 20px;
+    }
+
+    .birthday-image {
+        border-radius: 18px;
+    }
+
+}
+
 </style>
 </head>
+
 <body>
-<div class="card">
-  <div class="heart">🎂 ✨</div>
-  <h1>Happy Birthday</h1>
-  <h2>Protiva 🤍</h2>
-  <p>May Allah bless you with happiness, peace, good health, and beautiful moments.</p>
-  <p>May every new chapter of your life bring you closer to the things that make you genuinely happy.</p>
-  <button onclick="document.getElementById('message').style.display='block';this.style.display='none'">
-    Open a little wish ✨
-  </button>
-  <div id="message">
-    <p><b>Have a beautiful birthday, Protiva.</b></p>
-    <p>Keep smiling, keep shining, and take care. 🌙</p>
-  </div>
+
+<!-- STARS -->
+
+<div class="stars">
+
+    <span class="star" style="top:10%;left:12%;animation-delay:.2s"></span>
+    <span class="star" style="top:18%;left:30%;animation-delay:1s"></span>
+    <span class="star" style="top:30%;left:75%;animation-delay:.5s"></span>
+    <span class="star" style="top:45%;left:15%;animation-delay:1.5s"></span>
+    <span class="star" style="top:55%;left:85%;animation-delay:.8s"></span>
+    <span class="star" style="top:70%;left:25%;animation-delay:2s"></span>
+    <span class="star" style="top:80%;left:70%;animation-delay:1.2s"></span>
+    <span class="star" style="top:90%;left:45%;animation-delay:.4s"></span>
+
 </div>
+
+<!-- MOON -->
+
+<div class="moon"></div>
+
+<!-- MAIN -->
+
+<main class="container">
+
+    <h1>Happy Birthday Protiva 🎂</h1>
+
+    <div class="subtitle">
+        A little birthday surprise ✨
+    </div>
+
+    <!-- CHANGE THIS IMAGE NAME -->
+    <img
+        src="YOUR_IMAGE_FILENAME.png"
+        alt="Happy Birthday Protiva"
+        class="birthday-image"
+    >
+
+    <div class="card">
+
+        <p>
+            May Allah bless you with happiness, peace,
+            good health and beautiful moments.
+            May every new chapter of your life bring
+            you closer to the things that make you
+            genuinely happy.
+        </p>
+
+        <button onclick="showWish()">
+            Open a little wish ✨
+        </button>
+
+        <div id="wish">
+
+            Have a beautiful birthday, Protiva. 🌙
+
+            <br><br>
+
+            Keep smiling, keep shining,
+            and take care. 🤍
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- MUSIC BUTTON -->
+
+<button class="music-button" onclick="toggleMusic()" id="musicButton">
+    🎵
+</button>
+
+<!-- OPTIONAL MUSIC -->
+
+<audio id="music" loop>
+    <source src="birthday-music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* Birthday wish */
+
+function showWish() {
+
+    const wish = document.getElementById("wish");
+
+    if (wish.style.display === "block") {
+
+        wish.style.display = "none";
+
+    } else {
+
+        wish.style.display = "block";
+
+    }
+
+}
+
+
+/* Music */
+
+const music = document.getElementById("music");
+
+function toggleMusic() {
+
+    const button = document.getElementById("musicButton");
+
+    if (music.paused) {
+
+        music.play();
+
+        button.innerHTML = "🔊";
+
+    } else {
+
+        music.pause();
+
+        button.innerHTML = "🎵";
+
+    }
+
+}
+
+</script>
+
 </body>
 </html>
